@@ -27,6 +27,36 @@ body {
 main {
   flex-grow: 1;
 }
+
 main:has(.back-link) {
   text-align: center;
+}
+
+.preview-link {
+  display: block;
+  min-width: 200px;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 120px 50px;
+
+  text-align: center;
+}
+
+
+.preview-link:hover {
+  background-color: #0056b3;
+  color: #fff;
 }

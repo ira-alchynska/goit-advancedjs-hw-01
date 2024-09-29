@@ -1,3 +1,7 @@
+import SimpleLightbox from 'simplelightbox';
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
 const images = [
     {
         preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
@@ -46,25 +50,34 @@ const images = [
     },
 ];
 
+
 const galleryContainer = document.querySelector('.gallery');
-const galleryMarkup = images
-    .map(({ preview, original, description }) => {
+
+
+if (galleryContainer) {
+
+    const galleryItemsMarkup = images.map(({ preview, original, description }) => {
         return `
-        <li class="gallery-item">
-	<a class="gallery-link" href="${original}">
-		<img
-			class="gallery-image"
-			src="${preview}"
-              data-source="${original}"
-			alt="${description}"
-			/>
-	</a>
-</li>
-     
+      <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+          <img class="gallery-image" src="${preview}" alt="${description}" />
+        </a>
+      </li>
     `;
-    })
-    .join('');
-
-galleryContainer.innerHTML = galleryMarkup;
+    }).join('');
 
 
+    galleryContainer.innerHTML = galleryItemsMarkup;
+
+
+    const lightbox = new SimpleLightbox('.gallery a', {
+        captions: true,
+        captionsData: 'alt',
+        captionDelay: 250,
+    });
+
+
+    lightbox.refresh();
+} else {
+    console.error('Gallery container not found!');
+}
