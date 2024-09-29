@@ -79,5 +79,5 @@ if (galleryContainer) {
 
     lightbox.refresh();
 } else {
-    console.error('Gallery container not found!');
+    console.error('Gallery container  is not found!');
 }
