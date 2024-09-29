@@ -36,7 +36,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (!formData.email || !formData.message) {
-        alert('Fill please all fields');
+        alert('Fill out all fields');
         return;
     }
 
